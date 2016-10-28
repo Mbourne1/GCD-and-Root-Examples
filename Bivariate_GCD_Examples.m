@@ -21,11 +21,8 @@ switch ex_num
             (x - 0.721)         1
             ];
         
-        u = GetFactors(u);
-        v = GetFactors(v);
-        d = GetFactors(d);
-        f = [u d];
-        g = [v d];
+        f = [u; d];
+        g = [v; d];
         
     case '2' % Example 8.3 in my report
         
@@ -43,11 +40,9 @@ switch ex_num
             (x + y + 28/25)         3
             ];
         
-        u = GetFactors(u);
-        v = GetFactors(v);
-        d = GetFactors(d);
-        f = [u d];
-        g = [v d];
+
+        f = [u; d];
+        g = [v; d];
         
     case '3'
         
@@ -67,13 +62,11 @@ switch ex_num
             (x-2/5)     10
             ];
         
-        u = GetFactors(u);
-        v = GetFactors(v);
-        d = GetFactors(d);
+
         
         
-        f = [u d];
-        g = [v d];
+        f = [u; d];
+        g = [v; d];
         
     case '4'
         
@@ -91,13 +84,11 @@ switch ex_num
             (x + 0.8)   4
             ];
         
-        u = GetFactors(u);
-        v = GetFactors(v);
-        d = GetFactors(d);
+
         
         
-        f = [u d];
-        g = [v d];
+        f = [u; d];
+        g = [v; d];
         
     case '5'
         
@@ -114,11 +105,9 @@ switch ex_num
             (x + y + 2)         1
             ];
         
-        u = GetFactors(u);
-        v = GetFactors(v);
-        d = GetFactors(d);
-        f = [u d];
-        g = [v d];
+
+        f = [u; d];
+        g = [v ;d];
         
     case '6'
         
@@ -135,11 +124,9 @@ switch ex_num
             (x + y + 2)         2 
             (x+1)               3
             ];
-        u = GetFactors(u);
-        v = GetFactors(v);
-        d = GetFactors(d);
-        f = [u d];
-        g = [v d];
+
+        f = [u; d];
+        g = [v; d];
         
         
     case '7'
@@ -155,11 +142,9 @@ switch ex_num
             (x + y + 1.12)      3 
             (x+0.56)            1
             ];
-        u = GetFactors(u);
-        v = GetFactors(v);
-        d = GetFactors(d);
-        f = [u d];
-        g = [v d];
+
+        f = [u; d];
+        g = [v; d];
         
     case '8'
         
@@ -175,11 +160,9 @@ switch ex_num
         v = [
             (x^2 - 5*x)         1
             ];
-        u = GetFactors(u);
-        v = GetFactors(v);
-        d = GetFactors(d);
-        f = [u d];
-        g = [v d];
+
+        f = [u; d];
+        g = [v ;d];
         
         
     case '9'
@@ -198,11 +181,9 @@ switch ex_num
             (x-0.1)     5
             (y-0.2234)  5
             ];
-        u = GetFactors(u);
-        v = GetFactors(v);
-        d = GetFactors(d);
-        f = [u d];
-        g = [v d];
+
+        f = [u; d];
+        g = [v; d];
         
     case '10'
         d = [
@@ -216,11 +197,9 @@ switch ex_num
         v = [
             (x-0.1)    5
             ];
-        u = GetFactors(u);
-        v = GetFactors(v);
-        d = GetFactors(d);
-        f = [u d];
-        g = [v d];
+
+        f = [u; d];
+        g = [v; d];
     otherwise
         error([mfilename ' : error : Not a valid example number'])
 end
