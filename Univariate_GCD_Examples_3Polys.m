@@ -1,4 +1,5 @@
-function [f_root_mult_arr,g_root_mult_arr,d_root_mult_arr,u_root_mult_arr,v_root_mult_arr] = Univariate_GCD_Examples(ex_num)
+function [f_root_mult_arr, g_root_mult_arr, h_root_mult_arr, ...
+    d_root_mult_arr, u_root_mult_arr, v_root_mult_arr, w_root_mult_arr] = Univariate_GCD_Examples_3Polys(ex_num)
 % 
 %
 %
@@ -12,12 +13,15 @@ function [f_root_mult_arr,g_root_mult_arr,d_root_mult_arr,u_root_mult_arr,v_root
 %
 % g : Array of symbolic factors of g(x) and multiplicity of the factors.
 %
+% h : Array of symbolic factors of h(x) and multiplicity of the factors.
+%
 % d : Array of symbolic factors of d(x) and multiplicity of the factors.
 %
 % u : Array of symbolic factors of u(x) and multiplicity of the factors.
 %
 % v : Array of symbolic factors of v(x) and multiplicity of the factors.
-
+%
+% w : Array of symbolic factors of w(x) and multiplicity of the factors.
 
 syms x
 
@@ -25,24 +29,30 @@ switch ex_num
           
     case '1'
         
-        d_root_mult_arr = [...
+        d_root_mult_arr = ...
+            [...
             (x+1)   2
             (x+2)   1
             ];
-        u_root_mult_arr = [...
+        u_root_mult_arr = ...
+            [...
             (x+3)   1
             ];
-        v_root_mult_arr = [...
+        v_root_mult_arr = ...
+            [...
             (x-2)   1
+            ];
+        w_root_mult_arr = ...
+            [
+            (x-0.512)   2
             ];
     
         f_root_mult_arr = [u_root_mult_arr ; d_root_mult_arr];
         g_root_mult_arr = [v_root_mult_arr ; d_root_mult_arr];
+        h_root_mult_arr = [w_root_mult_arr ; d_root_mult_arr];
         
     case '2'
-        % From The computation of the degree of an approximate greatest
-        % common divisor of two Bernstein Polynomials - Bourne, Winkler
-        % & Yi.
+        
         
         u_root_mult_arr = [
             (x-0.1)    1 
@@ -59,6 +69,11 @@ switch ex_num
             (x-1.1)     3
             ];
         
+        w_root_mult_arr = ...
+            [...
+            (x+1.75)    2
+            ];
+        
         d_root_mult_arr = [
             (x-0.10)    3
             (x-0.80)    2
@@ -66,7 +81,7 @@ switch ex_num
        
         f_root_mult_arr = [u_root_mult_arr; d_root_mult_arr];
         g_root_mult_arr = [v_root_mult_arr; d_root_mult_arr];
-        
+        h_root_mult_arr = [w_root_mult_arr ; d_root_mult_arr];
         
     case '3'
         % From The computation of the degree of an approximate greatest
@@ -93,53 +108,68 @@ switch ex_num
             (x - 1.2)       3
             ]; 
         
+        w_root_mult_arr = ...
+            [...
+            (x + 1.75)      2
+            (x - 5.72)      2
+            ];
+        
         f_root_mult_arr = [u_root_mult_arr; d_root_mult_arr];
         g_root_mult_arr = [v_root_mult_arr; d_root_mult_arr];
+        h_root_mult_arr = [w_root_mult_arr ; d_root_mult_arr];
         
     case '4'
-        d_root_mult_arr = [...
+        d_root_mult_arr = ...
+            [...
             (x-0.5)         2
             ];
-        u_root_mult_arr = [...
+        
+        u_root_mult_arr = ...
+            [...
             (x + 1.234)     3
             ];
-        v_root_mult_arr = [...
+        
+        v_root_mult_arr = ...
+            [...
             (x-1.75292)     4
             ];
+        
+        w_root_mult_arr = ...
+            [
+            (x + 1.75)  2
+            ];
+        
+        
         f_root_mult_arr = [u_root_mult_arr; d_root_mult_arr];
         g_root_mult_arr = [v_root_mult_arr; d_root_mult_arr];
-    
+        h_root_mult_arr = [w_root_mult_arr ; d_root_mult_arr];
+        
     case '5'
         
-        d_root_mult_arr = [...
+        d_root_mult_arr = ...
+            [...
             (x - 1.2)         4
             (x + 4.7562)      2
             ];
-        u_root_mult_arr = [...
+        
+        u_root_mult_arr = ...
+            [...
             (x + 1.234)     3
             ];
-        v_root_mult_arr = [...
+        
+        v_root_mult_arr = ...
+            [...
             (x - 0.5)     3
             ];
+        
+        w_root_mult_arr = ...
+            [
+            (x + 1.75)  2
+            ];
+        
         f_root_mult_arr = [u_root_mult_arr; d_root_mult_arr];
         g_root_mult_arr = [v_root_mult_arr; d_root_mult_arr];
-        
-    case '6'
-         
-        d_root_mult_arr = [...
-            (x - 1.2)         14
-            (x + 4.7562)      2
-            ];
-        u_root_mult_arr = [...
-            (x - 1.5)     5
-            ];
-        v_root_mult_arr = [...
-            (x - 0.5)     7
-            (x + 1.9)     5
-            ];
-        f_root_mult_arr = [u_root_mult_arr; d_root_mult_arr];
-        g_root_mult_arr = [v_root_mult_arr; d_root_mult_arr];
-        
+        h_root_mult_arr = [w_root_mult_arr ; d_root_mult_arr];
         
     otherwise
         error_message = sprintf('%s : Not a valid Example Number',mfilename);

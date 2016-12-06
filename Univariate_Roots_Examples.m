@@ -1,4 +1,15 @@
 function [f] = Univariate_Roots_Examples(ex_num)
+% Get the set of factors and corresponding multiplicities which form the
+% polynomial f(x)
+%
+% % Inputs
+%
+% ex_num : Example number
+%
+% % Outputs
+%
+% f : Matrix whose rows are the symbolic factors and corresponding
+% multiplicities.
 
 syms x;
 
