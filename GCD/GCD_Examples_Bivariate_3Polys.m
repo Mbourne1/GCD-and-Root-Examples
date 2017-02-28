@@ -1,4 +1,4 @@
-function [f,g,d,u,v] = Bivariate_GCD_Examples(ex_num)
+function [f, g, h, d, u, v, w] = GCD_Examples_Bivariate_3Polys(ex_num)
 
 syms x y;
 
@@ -21,8 +21,13 @@ switch ex_num
             (x - 0.721)         1
             ];
         
+        w = [...
+            12*x^2 + y^2 - 52.34    1
+            ];
+        
         f = [u; d];
         g = [v; d];
+        h = [w; d];
         
     case '2' % Example 8.3 in my report
         
@@ -34,6 +39,10 @@ switch ex_num
             (x + y + 282/625)   3
             ];
         
+        w = [...
+            12*x^2 + y^2 - 52.34    1
+            ];
+        
         d = [...
             (x + 14/25)             1
             (x^2 + y^2 + 51/100)    2
@@ -43,6 +52,7 @@ switch ex_num
         
         f = [u; d];
         g = [v; d];
+        h = [w; d];
         
     case '3'
         
@@ -56,6 +66,12 @@ switch ex_num
             (x-3/10)    2
             (y-2/5)     1
             ];
+        
+        
+        w = [...
+            12*x^2 + y^2 - 52.34    1
+            ];
+        
         d = ...
             [
             (x+1/10)    4
@@ -67,6 +83,7 @@ switch ex_num
         
         f = [u; d];
         g = [v; d];
+        h = [w; d];
         
     case '4'
         
@@ -79,6 +96,10 @@ switch ex_num
             (x - 0.3)   3
             ];
         
+        w = [...
+            12*x^2 + y^2 - 52.34    1
+            ];
+        
         d = [...
             (x + 1)     1
             (x + 0.8)   4
@@ -89,6 +110,7 @@ switch ex_num
         
         f = [u; d];
         g = [v; d];
+        h = [w; d];
         
     case '5'
         
@@ -100,6 +122,10 @@ switch ex_num
             (x + y + 5.4512)    1
             ];
         
+        w = [...
+            12*x^2 + y^2 - 52.34    1
+            ];
+        
         d = [
             (x + y + 1)         1
             (x + y + 2)         1
@@ -108,6 +134,7 @@ switch ex_num
         
         f = [u; d];
         g = [v ;d];
+        h = [w; d];
         
     case '6'
         
@@ -119,6 +146,10 @@ switch ex_num
             (x + y + 5.4512)    1
             ];
         
+        w = [...
+            12*x^2 + y^2 - 52.34    1
+            ];
+        
         d = [
             (x + y + 1)         1
             (x + y + 2)         2
@@ -127,6 +158,7 @@ switch ex_num
         
         f = [u; d];
         g = [v; d];
+        h = [w; d];
         
         
     case '7'
@@ -134,9 +166,15 @@ switch ex_num
         u = [
             (x + y + 0.0124)    6
             ];
+        
         v = [
             (x + y + 0.4512)    3
             ];
+        
+        w = [...
+            12*x^2 + y^2 - 52.34    1
+            ];
+        
         d = [
             (x^2 + y^2 + 0.51)  2
             (x + y + 1.12)      3
@@ -145,6 +183,7 @@ switch ex_num
         
         f = [u; d];
         g = [v; d];
+        h = [w; d];
         
     case '8'
         
@@ -161,8 +200,13 @@ switch ex_num
             (x^2 - 5*x)         1
             ];
         
+        w = [...
+            12*x^2 + y^2 - 52.34    1
+            ];
+        
         f = [u; d];
         g = [v ;d];
+        h = [w; d];
         
         
     case '9'
@@ -173,17 +217,24 @@ switch ex_num
             (x-0.3)     3
             (y-0.5)     6
             ];
+        
         u = [
             (x-0.4445)  4
             (y-0.4)     4
             ];
+        
         v = [
             (x-0.1)     5
             (y-0.2234)  5
             ];
         
+        w = [...
+            12*x^2 + y^2 - 52.34    1
+            ];
+        
         f = [u; d];
         g = [v; d];
+        h = [w; d];
         
     case '10'
         d = [
@@ -191,15 +242,22 @@ switch ex_num
             (x-0.2)     2
             (x-0.3)     3
             ];
+        
         u = [
             (x-0.4445)  4
             ];
+        
         v = [
             (x-0.1)    5
             ];
         
+        w = [...
+            12*x^2 + y^2 - 52.34    1
+            ];
+        
         f = [u; d];
         g = [v; d];
+        h = [w; d];
         
     case '11'
         d = [
@@ -211,11 +269,19 @@ switch ex_num
         u = [
             (x + y + 31/2500) 6
             ];
+        
         v = [
             (x + y + 282/625) 3
             ];
+        
+        w = [...
+            12*x^2 + y^2 - 52.34    1
+            ];
+        
         f = [u; d];
         g = [v; d];
+        h = [w; d];
+        
     otherwise
         error([mfilename ' : error : Not a valid example number'])
 end

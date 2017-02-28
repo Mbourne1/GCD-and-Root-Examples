@@ -1,4 +1,4 @@
-function [factor_mult_arr] = Univariate_Deconvolution_Examples(ex_num)
+function [factor_mult_arr] = Deconvolution_Examples_Univariate(ex_num)
 % Get the factors and multiplicity of each factor in f(x,y)
 %
 % % Inputs

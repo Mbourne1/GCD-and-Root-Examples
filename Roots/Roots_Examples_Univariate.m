@@ -1,4 +1,4 @@
-function [f] = Univariate_Roots_Examples(ex_num)
+function [f] = Roots_Examples_Univariate(ex_num)
 % Get the set of factors and corresponding multiplicities which form the
 % polynomial f(x)
 %

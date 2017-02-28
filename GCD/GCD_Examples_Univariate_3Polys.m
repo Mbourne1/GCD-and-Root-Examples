@@ -1,27 +1,22 @@
 function [f_root_mult_arr, g_root_mult_arr, h_root_mult_arr, ...
-    d_root_mult_arr, u_root_mult_arr, v_root_mult_arr, w_root_mult_arr] = Univariate_GCD_Examples_3Polys(ex_num)
+    d_root_mult_arr, u_root_mult_arr, v_root_mult_arr, w_root_mult_arr] ...
+    = GCD_Examples_Univariate_3Polys(ex_num)
 % 
-%
-%
-% Inputs.
+% % Inputs.
 %
 % ex_num : Example Number
 %
-% Outputs.
+% % Outputs.
 %
-% f : Array of symbolic factors of f(x) and multiplicity of the factors.
-%
-% g : Array of symbolic factors of g(x) and multiplicity of the factors.
-%
-% h : Array of symbolic factors of h(x) and multiplicity of the factors.
+% [f_root_mult_arr, g_root_mult_arr, h_root_mult_arr] : Arrays of the 
+% symbolic factors of the polynomials f(x) g(x) and h(x) with corresponding
+% multiplicity of these factors.
 %
 % d : Array of symbolic factors of d(x) and multiplicity of the factors.
 %
-% u : Array of symbolic factors of u(x) and multiplicity of the factors.
-%
-% v : Array of symbolic factors of v(x) and multiplicity of the factors.
-%
-% w : Array of symbolic factors of w(x) and multiplicity of the factors.
+% [u_root_mult_arr, v_root_mult_arr, w_root_mult_arr] : Arrays of the 
+% symbolic factors of the polynomials u(x) v(x) and w(x) with corresponding
+% multiplicity of these factors.
 
 syms x
 
@@ -71,12 +66,12 @@ switch ex_num
         
         w_root_mult_arr = ...
             [...
-            (x+1.75)    2
+            (x+1.75)    4
             ];
         
         d_root_mult_arr = [
             (x-0.10)    3
-            (x-0.80)    2
+            (x-0.80)    5
             ];
        
         f_root_mult_arr = [u_root_mult_arr; d_root_mult_arr];
@@ -84,34 +79,32 @@ switch ex_num
         h_root_mult_arr = [w_root_mult_arr ; d_root_mult_arr];
         
     case '3'
-        % From The computation of the degree of an approximate greatest
-        % common divisor of two Bernstein Polynomials - Bourne, Winkler
-        % & Yi.
+        
         
         d_root_mult_arr = [...
             (x - 0.1)       2
             (x - 0.56)      4
-            (x - 0.75)      3
+            (x - 0.75)      5
             (x - 1.37)      3
             ];
         
         u_root_mult_arr = [
-            (x - 0.1)       1
+            (x - 1.2)       1
             (x - 0.82)      3
-            (x + 0.27)      3
+            (x + 0.27)      4
             (x - 1.46)      2
             ];
         
         v_root_mult_arr = [
             (x - 0.99)      4
-            (x - 2.12)      1
+            (x - 2.12)      4
             (x - 1.2)       3
             ]; 
         
         w_root_mult_arr = ...
             [...
             (x + 1.75)      2
-            (x - 5.72)      2
+            (x - 5.72)      8
             ];
         
         f_root_mult_arr = [u_root_mult_arr; d_root_mult_arr];

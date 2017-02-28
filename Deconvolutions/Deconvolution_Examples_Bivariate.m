@@ -1,4 +1,4 @@
-function [f] = Bivariate_Deconvolution_Examples(ex_num)
+function [f] = Deconvolution_Examples_Bivariate(ex_num)
 % Get the matrix of factors and a vector of corresponding multiplicities.
 %
 % % Inputs

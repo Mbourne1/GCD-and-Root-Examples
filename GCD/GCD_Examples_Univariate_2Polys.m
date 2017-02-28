@@ -1,5 +1,6 @@
-function [f_root_mult_arr,g_root_mult_arr,d_root_mult_arr,u_root_mult_arr,v_root_mult_arr] = Univariate_GCD_Examples(ex_num)
-% 
+function [f_root_mult_arr, g_root_mult_arr, d_root_mult_arr, ...
+    u_root_mult_arr, v_root_mult_arr] = GCD_Examples_Univariate_2Polys(ex_num)
+%
 %
 %
 % Inputs.
@@ -22,7 +23,7 @@ function [f_root_mult_arr,g_root_mult_arr,d_root_mult_arr,u_root_mult_arr,v_root
 syms x
 
 switch ex_num
-          
+    
     case '1'
         
         d_root_mult_arr = [...
@@ -35,7 +36,7 @@ switch ex_num
         v_root_mult_arr = [...
             (x-2)   1
             ];
-    
+        
         f_root_mult_arr = [u_root_mult_arr ; d_root_mult_arr];
         g_root_mult_arr = [v_root_mult_arr ; d_root_mult_arr];
         
@@ -45,7 +46,7 @@ switch ex_num
         % & Yi.
         
         u_root_mult_arr = [
-            (x-0.1)    1 
+            (x-0.1)    1
             (x-0.3)     2
             (x-0.5)     2
             (x-0.7)     3
@@ -63,7 +64,7 @@ switch ex_num
             (x-0.10)    3
             (x-0.80)    2
             ];
-       
+        
         f_root_mult_arr = [u_root_mult_arr; d_root_mult_arr];
         g_root_mult_arr = [v_root_mult_arr; d_root_mult_arr];
         
@@ -91,7 +92,7 @@ switch ex_num
             (x - 0.99)      4
             (x - 2.12)      1
             (x - 1.2)       3
-            ]; 
+            ];
         
         f_root_mult_arr = [u_root_mult_arr; d_root_mult_arr];
         g_root_mult_arr = [v_root_mult_arr; d_root_mult_arr];
@@ -108,7 +109,7 @@ switch ex_num
             ];
         f_root_mult_arr = [u_root_mult_arr; d_root_mult_arr];
         g_root_mult_arr = [v_root_mult_arr; d_root_mult_arr];
-    
+        
     case '5'
         
         d_root_mult_arr = [...
@@ -125,13 +126,13 @@ switch ex_num
         g_root_mult_arr = [v_root_mult_arr; d_root_mult_arr];
         
     case '6'
-         
+        
         d_root_mult_arr = [...
             (x - 1.2)         14
             (x + 4.7562)      2
             ];
         u_root_mult_arr = [...
-            (x - 1.5)     5
+            (x - 1.5)     10
             ];
         v_root_mult_arr = [...
             (x - 0.5)     7
@@ -140,10 +141,101 @@ switch ex_num
         f_root_mult_arr = [u_root_mult_arr; d_root_mult_arr];
         g_root_mult_arr = [v_root_mult_arr; d_root_mult_arr];
         
+    case '7'
+        
+        d_root_mult_arr = [...
+            (x - 1.2)         14
+            (x + 4.7562)      2
+            ];
+        u_root_mult_arr = [...
+            (x - 1.9)     10
+            (x - 0.2)     4
+            ];
+        v_root_mult_arr = [...
+            (x - 0.5)     7
+            (x + 0.9)     15
+            ];
+        f_root_mult_arr = [u_root_mult_arr; d_root_mult_arr];
+        g_root_mult_arr = [v_root_mult_arr; d_root_mult_arr];
+        
+    case '8'
+        % From The computation of the degree of an approximate greatest
+        % common divisor of two Bernstein Polynomials - Bourne, Winkler
+        % & Yi.
+        % ADAPTED
+        
+        d_root_mult_arr = [...
+            (x - 0.1)       2
+            (x - 0.56)      8
+            (x - 0.75)      3
+            (x - 1.37)      3
+            ];
+        
+        u_root_mult_arr = [
+            (x - 0.1)       1
+            (x - 0.82)      3
+            (x + 0.27)      3
+            (x - 1.46)      2
+            ];
+        
+        v_root_mult_arr = [
+            (x - 0.99)      4
+            (x - 2.12)      1
+            (x - 1.2)       3
+            ];
+        
+        f_root_mult_arr = [u_root_mult_arr; d_root_mult_arr];
+        g_root_mult_arr = [v_root_mult_arr; d_root_mult_arr];
+        
+    case '9'
+        
+        d_root_mult_arr = BuildRandomPoly(5,-1,1,1,5);
+        u_root_mult_arr = BuildRandomPoly(3,-1,1,1,5);
+        v_root_mult_arr = BuildRandomPoly(4,-1,1,1,5);
+        
+        
+        f_root_mult_arr = [u_root_mult_arr; d_root_mult_arr];
+        g_root_mult_arr = [v_root_mult_arr; d_root_mult_arr];
+        
+    case '10'
+        
+        d_root_mult_arr = BuildRandomPoly(3,-1,1,1,5);
+        u_root_mult_arr = BuildRandomPoly(7,-2,1,1,7);
+        v_root_mult_arr = BuildRandomPoly(4,-1,1,1,5);
+        
+        
+        f_root_mult_arr = [u_root_mult_arr; d_root_mult_arr];
+        g_root_mult_arr = [v_root_mult_arr; d_root_mult_arr];
         
     otherwise
-        error_message = sprintf('%s : Not a valid Example Number',mfilename);
-        error(error_message)
+        
+        error('%s : Not a valid Example Number',mfilename)
 end
+
+end
+
+function [root_mult_arr] = BuildRandomPoly(n_factors, root_low, root_high, mult_low, mult_high)
+
+syms x
+
+root_mult_arr = sym(zeros(n_factors, 2));
+
+for i = 1:1:n_factors
+    
+    a = root_low;
+    b = root_high;
+    root = a + (b-a).*rand(1,1);
+    
+    factor = x - root;
+    
+    
+    
+    mult = randi([mult_low mult_high],1,1);
+    
+    root_mult_arr(i,:) = [factor ; mult];
+    
+end
+
+
 
 end
