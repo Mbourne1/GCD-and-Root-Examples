@@ -46,6 +46,25 @@ switch ex_num
                 (x + y + 1.2)   10
                 (x + y - 0.15)  15
             ];
+        
+    case '4'
+        f = ...
+            [
+                (x + y + 0.5)   7
+                (x + y + 1.2)   10
+                (x + y - 0.15)  15
+                (x - 0.675214)  3
+            ];
+        
+     case '5'
+    f = ...
+        [
+            (x + y + 0.5)   7
+            (x + y + 1.2)   10
+            (x + y - 0.15)  15
+            (x - 0.675214)  3
+            (y - 1.2345)    12
+        ];
     otherwise
         
         error([ mfilename ' : Not a valid example number'])
