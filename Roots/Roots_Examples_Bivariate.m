@@ -49,7 +49,7 @@ switch ex_num
         
         
         factor_mult_arr = [...
-            (x - 1.5)   4 
+            (x - 1.5)   3 
             (y + 0.75)  7 
             (x - 10.1)  3
             ];

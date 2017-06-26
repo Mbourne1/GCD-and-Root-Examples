@@ -27,14 +27,14 @@ switch ex_num
     case '1'
         
         d_root_mult_arr = [...
-            (x+1)   2
-            (x+2)   1
+            (x + 1)   2
+            (x + 2)   1
             ];
         u_root_mult_arr = [...
-            (x+3)   1
+            (x + 3)   1
             ];
         v_root_mult_arr = [...
-            (x-2)   1
+            (x - 2)   1
             ];
         
         f_root_mult_arr = [u_root_mult_arr ; d_root_mult_arr];
@@ -46,23 +46,23 @@ switch ex_num
         % & Yi.
         
         u_root_mult_arr = [
-            (x-0.1)    1
-            (x-0.3)     2
-            (x-0.5)     2
-            (x-0.7)     3
-            (x-2.5)     3
-            (x-3.4)     3
+            (x - 0.1)    1
+            (x - 0.3)     2
+            (x - 0.5)     2
+            (x - 0.7)     3
+            (x - 2.5)     3
+            (x - 3.4)     3
             ];
         
         v_root_mult_arr = [
-            (x-0.85)    4
-            (x-0.9)     4
-            (x-1.1)     3
+            (x - 0.85)    4
+            (x - 0.9)     4
+            (x - 1.1)     3
             ];
         
         d_root_mult_arr = [
-            (x-0.10)    3
-            (x-0.80)    2
+            (x - 0.10)    3
+            (x - 0.80)    2
             ];
         
         f_root_mult_arr = [u_root_mult_arr; d_root_mult_arr];
@@ -186,26 +186,102 @@ switch ex_num
         
         f_root_mult_arr = [u_root_mult_arr; d_root_mult_arr];
         g_root_mult_arr = [v_root_mult_arr; d_root_mult_arr];
-        
     case '9'
+        % From The computation of the degree of an approximate greatest
+        % common divisor of two Bernstein Polynomials - Bourne, Winkler
+        % & Yi.
+        % ADAPTED
         
-        d_root_mult_arr = BuildRandomPoly(5,-1,1,1,5);
-        u_root_mult_arr = BuildRandomPoly(3,-1,1,1,5);
-        v_root_mult_arr = BuildRandomPoly(4,-1,1,1,5);
+        d_root_mult_arr = [...
+            (x - 0.1)       2
+            (x - 0.56)      8
+            (x - 0.75)      10
+            (x - 1.37)      3
+            ];
         
+        u_root_mult_arr = [
+            (x - 0.1)       4
+            (x - 0.82)      3
+            (x + 0.27)      3
+            (x - 1.46)      2
+            ];
+        
+        v_root_mult_arr = [
+            (x - 0.99)      4
+            (x - 2.12)      1
+            (x - 1.2)       3
+            ];
         
         f_root_mult_arr = [u_root_mult_arr; d_root_mult_arr];
         g_root_mult_arr = [v_root_mult_arr; d_root_mult_arr];
+        
+        
         
     case '10'
+        d_root_mult_arr = [...
+            (x - 1.2435487954)       2
+            (x - 5.56)      8
+            (x - 0.75)      10
+            (x - 1.37)      3
+            ];
         
-        d_root_mult_arr = BuildRandomPoly(3,-1,1,1,5);
-        u_root_mult_arr = BuildRandomPoly(7,-2,1,1,7);
-        v_root_mult_arr = BuildRandomPoly(4,-1,1,1,5);
+        u_root_mult_arr = [
+            (x - 0.10122344)       4
+            (x - 0.82)      3
+            (x + 2.27564657)      3
+            (x - 1.46)      2
+            ];
+        
+        v_root_mult_arr = [
+            (x - 0.99102445)      4
+            (x - 2.12)      1
+            (x - 1.2222222)       3
+            ];
+        f_root_mult_arr = [u_root_mult_arr; d_root_mult_arr];
+        g_root_mult_arr = [v_root_mult_arr; d_root_mult_arr];
+        
+        
+    case 'Random 1'
+        
+        d_root_mult_arr = BuildRandomPoly(5, -1, 1, 1, 5);
+        u_root_mult_arr = BuildRandomPoly(3, -1, 1, 1, 5);
+        v_root_mult_arr = BuildRandomPoly(4, -1, 1, 1, 5);
         
         
         f_root_mult_arr = [u_root_mult_arr; d_root_mult_arr];
         g_root_mult_arr = [v_root_mult_arr; d_root_mult_arr];
+        
+    case 'Random 2'
+        
+        d_root_mult_arr = BuildRandomPoly(3, -1, 1, 1, 5);
+        u_root_mult_arr = BuildRandomPoly(7, -2, 1, 1, 7);
+        v_root_mult_arr = BuildRandomPoly(4, -1, 1, 1, 5);
+        
+        
+        f_root_mult_arr = [u_root_mult_arr; d_root_mult_arr];
+        g_root_mult_arr = [v_root_mult_arr; d_root_mult_arr];
+        
+    case 'Coprime'
+        
+       d_root_mult_arr = [...
+            ];
+        
+        u_root_mult_arr = [
+            (x - 0.10122344)       4
+            (x - 0.82)      3
+            (x + 2.27564657)      3
+            (x - 1.46)      2
+            ];
+        
+        v_root_mult_arr = [
+            (x - 0.99102445)      4
+            (x - 2.12)      1
+            (x - 1.2222222)       3
+            ];
+        f_root_mult_arr = [u_root_mult_arr; d_root_mult_arr];
+        g_root_mult_arr = [v_root_mult_arr; d_root_mult_arr];
+    
+    
         
     otherwise
         
@@ -215,12 +291,24 @@ end
 end
 
 function [root_mult_arr] = BuildRandomPoly(n_factors, root_low, root_high, mult_low, mult_high)
+%
+% % Inputs
+%
+% n_factors : (Int) Number of factors
+%
+% root_low : (Float)
+%
+% root_high : (Float)
+%
+% mult_low : (Int)
+%
+% mult_high : (Int)
 
 syms x
 
 root_mult_arr = sym(zeros(n_factors, 2));
 
-for i = 1:1:n_factors
+for i = 1 : 1 : n_factors
     
     a = root_low;
     b = root_high;
