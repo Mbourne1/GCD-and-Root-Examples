@@ -65,9 +65,27 @@ switch ex_num
     case '4'
         factor_mult_arr = [...
             (x^2 + y^2 + 0.5) 10
-            (x+1) 3
+            (x + 1) 3
+        ];      
             
-        ];
+    case '5'
+            
+      factor_mult_arr = [...
+            (x + y - 0.5)       6
+            (x + y - 0.75)      9
+            (x - 0.457)         3
+            ];
+        
+        
+    case '6'
+        
+        factor_mult_arr = [...
+            (x + y - 0.5)       7
+            (x + y - 0.75)      5
+            (x - 0.457)         10
+            (y - 0.14567987)    5
+            ];
+        
         
     otherwise 
         error('err')

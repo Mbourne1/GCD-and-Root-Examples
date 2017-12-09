@@ -65,6 +65,16 @@ switch ex_num
             (x - 0.675214)  3
             (y - 1.2345)    12
         ];
+    
+    case '6'
+    f = ...
+        [
+            (x + y + 0.5561981981)   7
+            (x^2 + y^2 + 1.2)   10
+            (x + y - 0.15)  15
+            (x - 0.675214)  3
+            (y - 1.2345)    12
+        ];
     otherwise
         
         error([ mfilename ' : Not a valid example number'])
