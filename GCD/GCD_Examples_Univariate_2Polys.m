@@ -494,6 +494,8 @@ switch ex_num
             (x - 0.12)              8
             (x - 0.4579879)         1
             ];
+        
+        
        case '24' % case 15 edited
         d_root_mult_arr = [...
             (x - 1.2435487954)      5
