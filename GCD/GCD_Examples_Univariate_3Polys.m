@@ -980,8 +980,6 @@ switch ex_num
             [
             ];
         
-    otherwise
-        error('not valid example number')
         
 end
 
